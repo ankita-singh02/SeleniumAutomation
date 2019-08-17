@@ -1,5 +1,8 @@
 package stepdefinition;
 
+import org.junit.After;
+import org.junit.Before;
+
 import com.google.common.collect.ImmutableSet;
 import com.webcerebrium.slack.Notification;
 import com.webcerebrium.slack.NotificationException;
@@ -7,9 +10,7 @@ import com.webcerebrium.slack.SlackMessage;
 import com.webcerebrium.slack.SlackMessageAttachment;
 
 import cucumber.TestContext;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+import io.cucumber.core.api.Scenario;
 
 public class Hooks {
 	TestContext testContext;
@@ -24,25 +25,28 @@ public class Hooks {
 		this.scenario = scenario;
 		SlackMessage message = new SlackMessage();
 		SlackMessageAttachment attach;
-		if(scenario.getStatus().equalsIgnoreCase("failed")){
-		 attach = new SlackMessageAttachment(scenario.getName(), "Scenario *FAILED* :sob: "+scenario.getName(), "#c11e0f");
-		}
-		else{
-		 attach = new SlackMessageAttachment(scenario.getName(), "Scenario *PASSED* :patrick-star: "+scenario.getName(), "#c11e0f");
+		if (scenario.getStatus().equals("failed")) {
+			attach = new SlackMessageAttachment(scenario.getName(), "Scenario *FAILED* :sob: " + scenario.getName(),
+					"#c11e0f");
+		} else {
+			attach = new SlackMessageAttachment(scenario.getName(),
+					"Scenario *PASSED* :patrick-star: " + scenario.getName(), "#c11e0f");
 		}
 		attach.addMarkdown(ImmutableSet.of("title", "text"));
 		message.getAttachments().add(attach);
-	
+
 		try {
-			if(true) {
-			(new Notification("https://hooks.slack.com/services/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")).send(message);}
-			
+			if (true) {
+				(new Notification("https://hooks.slack.com/services/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"))
+						.send(message);
+			}
+
 		} catch (NotificationException e) {
 			System.out.println("Slack error");
 			e.printStackTrace();
 		}
-		//testContext.getWebDriverManager().closeDriver(); 
-		
+		// testContext.getWebDriverManager().closeDriver();
+
 	}
 
 	@Before

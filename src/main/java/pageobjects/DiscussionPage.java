@@ -1,9 +1,11 @@
 package pageobjects;
 
 import java.util.HashMap;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+
 import utils.GenericMethods;
 import utils.JSWaiter;
 import utils.LogUtils;

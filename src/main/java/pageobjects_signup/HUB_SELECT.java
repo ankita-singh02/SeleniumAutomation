@@ -1,6 +1,7 @@
 package pageobjects_signup;
 
 import org.openqa.selenium.WebDriver;
+
 import utils.GenericMethods;
 import utils.JSWaiter;
 import utils.LogUtils;
