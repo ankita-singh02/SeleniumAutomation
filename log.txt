@@ -1,0 +1,22 @@
+2018-10-08 12:34:35,935 INFO  [main] utils.LogUtils (LogUtils.java:12) - Navigating to Cluster Landing Page
+	2018-10-08 12:34:35,938 INFO  [main] utils.LogUtils (LogUtils.java:12) - Navigating to: https://automation.demo.peoplegrove.com/
+	2018-10-08 12:34:47,876 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicking On Hub Sign In Button
+	2018-10-08 12:34:47,877 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing click action
+	2018-10-08 12:34:50,574 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicking on Email Button
+	2018-10-08 12:34:50,575 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing click action
+	2018-10-08 12:34:51,226 INFO  [main] utils.LogUtils (LogUtils.java:12) - Entering correct Email ID
+	2018-10-08 12:34:51,227 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing input action
+	2018-10-08 12:34:52,151 INFO  [main] utils.LogUtils (LogUtils.java:12) - Entering correct Password
+	2018-10-08 12:34:52,151 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing input action
+	2018-10-08 12:34:52,511 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicking on Modal Sign In Button
+	2018-10-08 12:34:52,512 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing click action
+	2018-10-08 12:35:00,195 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicking on Tab: Home
+	2018-10-08 12:35:02,696 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing click action
+	2018-10-08 12:35:03,240 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicking on Browse All Resources on Event Page
+	2018-10-08 12:35:03,240 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing click action
+	2018-10-08 12:35:03,726 INFO  [main] utils.LogUtils (LogUtils.java:12) - Done clicking
+	2018-10-08 12:35:03,727 INFO  [main] utils.LogUtils (LogUtils.java:12) - Verifying Navigation
+	2018-10-08 12:35:03,738 INFO  [main] utils.LogUtils (LogUtils.java:12) - Driver URL: https://automation.demo.peoplegrove.com/hub/automation-hub/resources
+	2018-10-08 12:35:03,739 INFO  [main] utils.LogUtils (LogUtils.java:12) - Asserting the Page URL after navigation
+	2018-10-08 12:35:05,623 INFO  [main] utils.LogUtils (LogUtils.java:12) - Closing and Quitting the driver
+	

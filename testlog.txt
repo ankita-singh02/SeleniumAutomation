@@ -1,0 +1,37 @@
+2018-09-14 14:38:22,439 INFO  [main] utils.LogUtils (LogUtils.java:12) - Navigating to Cluster Landing Page
+2018-09-14 14:38:22,445 INFO  [main] utils.LogUtils (LogUtils.java:12) - Navigating to: https://automation.demo.peoplegrove.com/
+2018-09-14 14:38:34,189 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicking on button: Join Community XPATH: //div[text()='JOIN OUR COMMUNITY']
+2018-09-14 14:38:34,195 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing click action
+2018-09-14 14:38:34,374 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicked on Join Community
+2018-09-14 14:38:34,398 INFO  [main] utils.LogUtils (LogUtils.java:12) - Verifying Presence of modal auth XPATH://span[text()='Please select a login method below.']
+2018-09-14 14:38:34,398 INFO  [main] utils.LogUtils (LogUtils.java:12) - Verifying Visibility of an Element
+2018-09-14 14:38:34,460 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicking on button: Email XPATH: //span[contains(text(),'Email')]
+2018-09-14 14:38:34,467 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing click action
+2018-09-14 14:38:34,684 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicked on Email
+2018-09-14 14:38:34,700 INFO  [main] utils.LogUtils (LogUtils.java:12) - Verifying Presence of modal email signup XPATH://p[text()='Welcome to Ultimate Mentoring! ']
+2018-09-14 14:38:34,701 INFO  [main] utils.LogUtils (LogUtils.java:12) - Verifying Visibility of an Element
+2018-09-14 14:38:34,749 INFO  [main] utils.LogUtils (LogUtils.java:12) - Entering first Name
+2018-09-14 14:38:34,750 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing input action
+2018-09-14 14:38:34,954 INFO  [main] utils.LogUtils (LogUtils.java:12) - Entering last Name
+2018-09-14 14:38:34,954 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing input action
+2018-09-14 14:38:35,354 INFO  [main] utils.LogUtils (LogUtils.java:12) - Entering Email ID
+2018-09-14 14:38:35,355 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing input action
+2018-09-14 14:38:35,664 INFO  [main] utils.LogUtils (LogUtils.java:12) - Entering Password
+2018-09-14 14:38:35,665 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing input action
+2018-09-14 14:38:35,842 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicking on button: Create Account XPATH: //span[contains(text(),'Create Account')]
+2018-09-14 14:38:35,848 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing click action
+2018-09-14 14:38:35,974 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicked on Create Account
+2018-09-14 14:38:35,976 INFO  [main] utils.LogUtils (LogUtils.java:12) - Verifying whether on Hub Select Page
+2018-09-14 14:38:41,618 INFO  [main] utils.LogUtils (LogUtils.java:12) - Clicking On Automation Hub
+2018-09-14 14:38:41,619 INFO  [main] utils.LogUtils (LogUtils.java:12) - Performing click action
+2018-09-14 14:39:01,661 ERROR [main] utils.LogUtils (LogUtils.java:48) - Click action failed: no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(text(),'Automation')]"}
+  (Session info: chrome=69.0.3497.92)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
+System info: host: 'DESKTOP-FAI9V2T', ip: '10.15.5.90', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\Users\ela\AppData\Local\...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.92, webStorageEnabled: true}
+Session ID: d51ec88c5c9deac35a22ca2a90ea25cc
+*** Element info: {Using=xpath, value=//span[contains(text(),'Automation')]}

@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Functional Test Suite">
+	
+	<listeners>
+        <listener class-name="com.peoplegrove.setup.listener.TestListener" /> 
+        <listener class-name="com.peoplegrove.setup.listener.AnnotationTransformer"/>
+    </listeners>
+	<test  name="Sanity Test">
+		<parameter name="browser" value="Chrome" />
+		<classes>
+			<class name="cucumberTest.TestRunner" >
+		
+				
+			</class>
+				
+		</classes>
+	</test>
+
+</suite>
