@@ -10,7 +10,7 @@ import com.webcerebrium.slack.SlackMessage;
 import com.webcerebrium.slack.SlackMessageAttachment;
 
 import cucumber.TestContext;
-import io.cucumber.core.api.Scenario;
+import cucumber.api.Scenario;
 
 public class Hooks {
 	TestContext testContext;
