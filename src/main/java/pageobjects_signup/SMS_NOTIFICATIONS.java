@@ -22,6 +22,22 @@ public class SMS_NOTIFICATIONS {
 		GenericMethods.assertDisplay(driver, "text", "Sms Notification",pageTitle );
 				
 	}
+	
+	public void enterSmsNotifiationDetails(String details) {
+		
+		String info[]=details.split(",");
+		
+		System.out.println("INFO : " + info);
+		clickOn("checkbox", info[0]);
+		clickOn("checkbox", info[1]);
+		clickOn("checkbox", info[2]);
+		input("Phone Number", info[3]);
+		clickOn("button", "Continue");
+
+
+
+
+	}
 
 	public void clickOn(String element_type, String element_name) {
 		LogUtils.info("Clicking on "+element_name +" on SMS Notifications Page");

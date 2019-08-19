@@ -2,6 +2,7 @@ package stepdefinition.SignUpPage_Steps;
 
 import cucumber.TestContext;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import pageobjects_signup.CUSTOM_FIELDS;
 
 public class CustomFields_Steps {
@@ -36,6 +37,11 @@ public class CustomFields_Steps {
 	@Then("^user enters location \"([^\"]*)\" on Custom fields Page$")
 	public void user_enters_location_on_Custom_fields_Page(String location) {
 		customFieldsPage.inputLocation(location);
+	}
+
+	@When("^fills custom field details (.*)$")
+	public void userEntersDetailsOnCustomPage(String details) {
+		customFieldsPage.enterCustomDetails(details);
 	}
 
 }

@@ -2,6 +2,7 @@ package stepdefinition.SignUpPage_Steps;
 
 import cucumber.TestContext;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import pageobjects_signup.SIGN_AGREEMENT;
 
 public class SignAgreement_Steps {
@@ -10,9 +11,10 @@ public class SignAgreement_Steps {
 
 	public SignAgreement_Steps(TestContext context) {
 
-		testContext=context;
-		signAgreementPage=testContext.getPageObjectManager().getSIGN_AGREEMENT();
+		testContext = context;
+		signAgreementPage = testContext.getPageObjectManager().getSIGN_AGREEMENT();
 	}
+
 	@Then("^user navigates to SIGN_AGREEMENT Page$")
 	public void user_navigates_to_SIGN_AGREEMENT_page() {
 		signAgreementPage.verifyOnSignAgreementPage();
@@ -30,6 +32,12 @@ public class SignAgreement_Steps {
 
 	@Then("^user clicks on \"([^\"]*)\" : \"([^\"]*)\" on  Agreement Page$")
 	public void user_clicks_on_on_Agreement_Page(String element_type, String element_name) {
-		signAgreementPage.clickOn(element_type,element_name);
+		signAgreementPage.clickOn(element_type, element_name);
 	}
+
+	@When("^fills agreement page$")
+	public void userfillsAgreementPage() {
+		signAgreementPage.agreementPage();
+	}
+
 }

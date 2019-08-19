@@ -36,6 +36,13 @@ public class SIGN_AGREEMENT {
 		
 		
 	}
+	
+	public void agreementPage() {
+		
+		checkAgreement();
+		drawSign();
+		clickOn("button", "Next");
+	}
 
 	public void checkAgreement() {
 		LogUtils.info("Clicking on Agreement Checkbox ");

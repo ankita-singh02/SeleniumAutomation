@@ -27,5 +27,12 @@ public class SmsNotifications_Steps {
 	public void user_enters_in_on_Sms_Notifications_Page(String data, String inputName){
 		smsNotificationsPage.input(inputName,data);
 	}
+	
+	@Then("^enters SMS notification details (.*)$")
+	public void user_enters_in_on_Sms_Notifications_details(String details){
+		smsNotificationsPage.enterSmsNotifiationDetails(details);
+		smsNotificationsPage.clickOn("button", "Continue");
+
+	}
 
 }

@@ -30,6 +30,12 @@ public class UserPrograms_Steps {
 	public void user_clicks_on_dropdown_option_on_User_Programs_Page(String dropdown, String option) throws Throwable {
 	    userProgramsPage.clickOnDropdownOption(dropdown, option);
 	}
+	
+	@Then("^fills program details (.*)$")
+	public void userFillsProgramDetails(String details) throws Throwable {
+	    userProgramsPage.enterProgramDetails(details);
+	}
+
 
 
 }

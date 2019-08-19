@@ -134,4 +134,7 @@ Feature: SignUp Flow
     Then user navigates to JOIN_ADDITIONAL_HUBS Page
     And user clicks on "button" : "Skip for Now" on Join Additional Hubs Page 
     
+    
+
     Then user lands on Home Page
+
