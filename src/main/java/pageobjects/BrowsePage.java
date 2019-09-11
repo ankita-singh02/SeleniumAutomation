@@ -1,9 +1,15 @@
 package pageobjects;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import utils.GenericMethods;
@@ -12,13 +18,23 @@ import utils.LogUtils;
 
 public class BrowsePage {
 	WebDriver driver;
+	public static final String searchFilter = "//div[@class='pg-filter']/div/div/[@id='searchFilterFilter']";
+	public static final String bookmarkFilter = "//div[@class='pg-filter']/div/div/[@id='bookmarkFilterFilter']";
+	public static final String peopleContacted = "//div[@class='pg-filter']/div/div/[@id='peopleMetFilter']";
+	public static final String locationFilter = "//div[@class='pg-filter']/div/div/[@id='locationFilterFilter']";
+	public static final String majorFilter = "//div[@class='pg-filter']/div/div/[@id='majorFilterFilter']";
+	public static final String expertiseFilter = "//div[@class='pg-filter']/div/div/[@id='expertiseFilterFilter']";
+	public static final String input_SEARCH = "//span[@class='search-filter']//input[@type='text']";
+	public static final String searchApply = "	//div[@class='pg-filter-menu__footer']//button[2]";
+
+	public static final String XPATH = "xpath";
 
 	public BrowsePage(WebDriver driver) {
 		this.driver = driver;
 	}
 
 	public void clickon(String element_type, String element_name) {
-	
+
 		LogUtils.info("Clicking on " + element_name + " on Browse Page");
 		GenericMethods.click(driver, xpathCreator(element_type, element_name), "xpath");
 		LogUtils.info("Done clicking");
@@ -53,11 +69,70 @@ public class BrowsePage {
 		return xpath;
 	}
 
+
+	public Map getMap(String data) {
+
+		Map<String, List<String>> map = new TreeMap<String, List<String>>();
+
+		String[] keyValueCombined = data.split(";");
+
+		String val[] = null;
+
+		for (String s : keyValueCombined) {
+
+			String keyValuePairs[] = s.split(":");
+
+			for (String a : Arrays.asList(keyValuePairs[1])) {
+
+				val = a.split(",");
+			}
+
+			map.put(keyValuePairs[0], Arrays.asList(val));
+
+		}
+		System.out.println("Map " + map);
+
+		return map;
+
+	}
+
+	public void applyFiters(String filters) {
+		
+		System.out.println("In click Tab");
+		JSWaiter.waitForAngularLoad();
+		LogUtils.info("Filter Name: " + filters);
+		
+		Map map = getMap(filters);
+		
+        Iterator itr = map.entrySet().iterator(); 
+        while (itr.hasNext()) { 
+            Map.Entry mapElement = (Map.Entry)itr.next(); 
+
+		
+		switch((String)mapElement.getKey()){
+		
+		case "Search":
+			GenericMethods.click(driver, BrowsePage.searchFilter, "xpath");
+			GenericMethods.input(driver, BrowsePage.input_SEARCH, LandingPage_Elements.XPATH, (String)mapElement.getValue());
+			break;
+			
+		case "Location":
+			GenericMethods.click(driver, BrowsePage.locationFilter, "xpath");
+			GenericMethods.input(driver, BrowsePage.input_SEARCH, LandingPage_Elements.XPATH, (String)mapElement.getValue());
+			break;
+			
+		
+		}
+
+        }
+	}
+
 	public static String elementMap(String xpath_name) {
 		HashMap<String, String> browsePageElements = new HashMap<String, String>();
 
-		// >>>>>>>>>>>>>>>>>>>>>>>>>>> ELEMENTS ON EVENT CARD <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-		
+		// >>>>>>>>>>>>>>>>>>>>>>>>>>> ELEMENTS ON EVENT CARD
+		// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 		browsePageElements.put("filterBOOKMARK", "//button[@id='bookmark']");
 		browsePageElements.put("bookmarkPROFILE", "//i[@class='star-icon campuskudos-star-9 yellow']");
 		browsePageElements.put("filterMYACTIONS", "//h3[text()='My Actions']");

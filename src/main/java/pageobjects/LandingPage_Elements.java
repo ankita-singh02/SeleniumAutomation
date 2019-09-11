@@ -6,10 +6,11 @@ public class LandingPage_Elements {
 	public static final String XPATH="xpath";
 	
 	/* >>>>>>>>>>>>>>>>>>>>>>> Sign In Flow Elements <<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
-	public static final String btn_hub_SIGNIN="//div[@class='hub-header']/div/div/a[contains(text(),'Sign in')]";
+	//public static final String btn_hub_SIGNIN="//div[@class='hub-header']/div/div/a[contains(text(),'Sign in')]";
+	public static final String btn_hub_SIGNIN="//div[@class='hub-header']/div/div[2]/button[contains(text(),'Sign in')]";
 	public static final String btn_LINKEDIN="//span[contains(text(),'LinkedIn')]";
 	public static final String btn_FACEBOOK="//span[contains(text(),'Facebook')]";
-	public static final String btn_EMAIL="//button[@aria-label='Email']/span";
+	public static final String btn_EMAIL="//button[@aria-label='Sign in with Email']/span";
 	public static final String btn_modalSIGNIN="//span[contains(text(),'Sign in')]";
 	public static final String btn_SIGNUPHERE="//a[contains(text(),'Sign up here')]";
 	public static final String btn_FORGOTPASSWORD="//a[contains(text(),'Forgot password')]";

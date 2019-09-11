@@ -16,6 +16,7 @@ public class HubNavBar {
 		this.driver=driver;
 	}
 	public void clickOnTab(String tab) {
+		System.out.println("In click Tab");
 		JSWaiter.waitForAngularLoad();
 		LogUtils.info("Clicking on Tab: "+tab);
 		try {
@@ -28,6 +29,10 @@ public class HubNavBar {
 		switch(value) {
 		case "EVENT":  GenericMethods.click(driver, eventTab, "xpath"); break;
 		case "HOME" :  GenericMethods.click(driver, "//md-tab-item/span[@class='hub-action-tab' and contains(text(),'Home')]", "xpath"); break;
+		case "BROWSE" : 
+			System.out.println("In Browse");
+			GenericMethods.click(driver, "//md-tab-item/a[contains(text(),'Browse') or contains(text(), 'Community') or contains(text(), 'Network')]", "xpath"); break;
+
 		}
 		JSWaiter.waitForAngularLoad();
 		
