@@ -150,8 +150,8 @@ public class JSWaiter {
         }
     }
 
-	public static void waitMethod(WebDriver driver, String sLocator, String locatorType) {
-		// TODO Auto-generated method stub
-		
-	}
+    public static void waitForLoad(WebDriver driver) {
+        new WebDriverWait(driver, 50).until((ExpectedCondition<Boolean>) wd ->
+                ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
+    }
 }

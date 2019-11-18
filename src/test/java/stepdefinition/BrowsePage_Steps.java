@@ -31,5 +31,11 @@ public class BrowsePage_Steps {
 	public void disappears_on_BrowsePage(String element_type, String element_name) throws Throwable {
 	    browsePage.verifyAbsenceOf(element_type, element_name);
 	}
+	
+	
+	@When("^user applies filter (.*)$")
+	public void userAppliesFilter(String filter) {
+		browsePage.applyFiters(filter);
+	}
 
 }

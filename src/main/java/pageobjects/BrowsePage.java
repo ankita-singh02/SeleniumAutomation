@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import org.openqa.selenium.By;
@@ -18,14 +19,14 @@ import utils.LogUtils;
 
 public class BrowsePage {
 	WebDriver driver;
-	public static final String searchFilter = "//div[@class='pg-filter']/div/div/[@id='searchFilterFilter']";
+	public static final String searchFilter = "//*[@id=\"searchFilter\"]";
 	public static final String bookmarkFilter = "//div[@class='pg-filter']/div/div/[@id='bookmarkFilterFilter']";
 	public static final String peopleContacted = "//div[@class='pg-filter']/div/div/[@id='peopleMetFilter']";
 	public static final String locationFilter = "//div[@class='pg-filter']/div/div/[@id='locationFilterFilter']";
 	public static final String majorFilter = "//div[@class='pg-filter']/div/div/[@id='majorFilterFilter']";
 	public static final String expertiseFilter = "//div[@class='pg-filter']/div/div/[@id='expertiseFilterFilter']";
-	public static final String input_SEARCH = "//span[@class='search-filter']//input[@type='text']";
-	public static final String searchApply = "	//div[@class='pg-filter-menu__footer']//button[2]";
+	public static final String input_SEARCH = "//*[@id=\"searchFilterFilter\"]/div/div/div/div/div[1]/span/input";
+	public static final String searchApply = "//*[@id=\"searchFilterFilter\"]/div/div/div/div/div[2]/div/button[2]";
 
 	public static final String XPATH = "xpath";
 
@@ -69,7 +70,6 @@ public class BrowsePage {
 		return xpath;
 	}
 
-
 	public Map getMap(String data) {
 
 		Map<String, List<String>> map = new TreeMap<String, List<String>>();
@@ -97,34 +97,39 @@ public class BrowsePage {
 	}
 
 	public void applyFiters(String filters) {
-		
+
 		System.out.println("In click Tab");
-		JSWaiter.waitForAngularLoad();
+		JSWaiter.waitForLoad(driver);
 		LogUtils.info("Filter Name: " + filters);
-		
-		Map map = getMap(filters);
-		
-        Iterator itr = map.entrySet().iterator(); 
-        while (itr.hasNext()) { 
-            Map.Entry mapElement = (Map.Entry)itr.next(); 
 
-		
-		switch((String)mapElement.getKey()){
-		
-		case "Search":
-			GenericMethods.click(driver, BrowsePage.searchFilter, "xpath");
-			GenericMethods.input(driver, BrowsePage.input_SEARCH, LandingPage_Elements.XPATH, (String)mapElement.getValue());
-			break;
-			
-		case "Location":
-			GenericMethods.click(driver, BrowsePage.locationFilter, "xpath");
-			GenericMethods.input(driver, BrowsePage.input_SEARCH, LandingPage_Elements.XPATH, (String)mapElement.getValue());
-			break;
-			
-		
+		Map<String, List<String>> map = getMap(filters);
+
+		Iterator<Map.Entry<String, List<String>>> itr = map.entrySet().iterator();
+		while (itr.hasNext()) {
+			Entry<String, List<String>> mapElement = itr.next();
+
+			for (int i =0;i<mapElement.getValue().size();i++) {
+				switch ((String) mapElement.getKey()) {
+
+				case "Search":
+					GenericMethods.click(driver, BrowsePage.searchFilter, "xpath");
+					System.out.println("Value " + mapElement.getValue().get(i));
+					GenericMethods.input(driver, BrowsePage.input_SEARCH, LandingPage_Elements.XPATH,
+							mapElement.getValue().get(i));
+					GenericMethods.click(driver, BrowsePage.searchApply, "xpath");
+
+					break;
+
+				case "Location":
+					GenericMethods.click(driver, BrowsePage.locationFilter, "xpath");
+					GenericMethods.input(driver, BrowsePage.input_SEARCH, LandingPage_Elements.XPATH,
+							mapElement.getValue().get(i));
+					break;
+				}
+
+			}
+
 		}
-
-        }
 	}
 
 	public static String elementMap(String xpath_name) {

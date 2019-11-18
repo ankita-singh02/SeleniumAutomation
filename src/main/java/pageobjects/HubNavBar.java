@@ -17,8 +17,10 @@ public class HubNavBar {
 	}
 	public void clickOnTab(String tab) {
 		System.out.println("In click Tab");
-		JSWaiter.waitForAngularLoad();
+		//JSWaiter.waitForAngularLoad();
+		JSWaiter.waitForLoad(driver);
 		LogUtils.info("Clicking on Tab: "+tab);
+		System.out.println("CLicking on tab " + tab);
 		try {
 			Thread.sleep(2500);
 		} catch (InterruptedException e) {
@@ -34,7 +36,8 @@ public class HubNavBar {
 			GenericMethods.click(driver, "//md-tab-item/a[contains(text(),'Browse') or contains(text(), 'Community') or contains(text(), 'Network')]", "xpath"); break;
 
 		}
-		JSWaiter.waitForAngularLoad();
+		//JSWaiter.waitForAngularLoad();
+		JSWaiter.waitForLoad(driver);
 		
 	}
 	

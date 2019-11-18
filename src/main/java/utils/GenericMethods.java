@@ -18,12 +18,12 @@ public class GenericMethods {
 	public static void click(WebDriver driver, String sLocator, String locatorType) { // To click on a certain element
 																						// using its locator
 		LogUtils.info("Performing click action");
-		JSWaiter.waitForAngularLoad();
+		JSWaiter.waitForLoad(driver);
 
 		try {
 			WebElement element = driver.findElement(By.xpath(sLocator));
 			WaitTool.waitForElement(driver, By.xpath(sLocator), 5);
-			JavascriptUtils.bringIntoView(element);
+			//JavascriptUtils.bringIntoView(element);
 			element.click();
 
 		} catch (Exception e) {
@@ -37,11 +37,11 @@ public class GenericMethods {
 		// To input String into text fields
 
 		LogUtils.info("Performing input action");
-		JSWaiter.waitMethod(driver, sLocator, locatorType);
+		//JSWaiter.waitMethod(driver, sLocator, locatorType);
 		try {
 
 			WebElement element = driver.findElement(By.xpath(sLocator));
-			JavascriptUtils.bringIntoView(element);
+			//JavascriptUtils.bringIntoView(element);
 			element.sendKeys(data);
 		} catch (Exception e) {
 

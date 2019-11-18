@@ -72,7 +72,7 @@ public class LandingPage {
 
 		LogUtils.info("Clicking on Modal Sign In Button");
 		GenericMethods.click(driver, LandingPage_Elements.btn_modalSIGNIN, LandingPage_Elements.XPATH);
-		JSWaiter.waitForAngularLoad();
+		JSWaiter.waitForLoad(driver);
 
 	}
 
