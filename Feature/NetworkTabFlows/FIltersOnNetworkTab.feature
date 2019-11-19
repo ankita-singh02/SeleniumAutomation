@@ -6,6 +6,6 @@ Feature: Network Tab Filters
     
    Examples:
    |filter|
-   |Search:abc|   
+   |Search:abc;Location:Mumbai,Tokyo;Major(s):Art,Computer;Expertise:Advertising,Business Development,Consulting|   
      
     

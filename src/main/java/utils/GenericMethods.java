@@ -18,11 +18,11 @@ public class GenericMethods {
 	public static void click(WebDriver driver, String sLocator, String locatorType) { // To click on a certain element
 																						// using its locator
 		LogUtils.info("Performing click action");
-		JSWaiter.waitForLoad(driver);
+		//JSWaiter.waitForLoad(driver);
 
 		try {
 			WebElement element = driver.findElement(By.xpath(sLocator));
-			WaitTool.waitForElement(driver, By.xpath(sLocator), 5);
+			//WaitTool.waitForElement(driver, By.xpath(sLocator), 5);
 			//JavascriptUtils.bringIntoView(element);
 			element.click();
 
@@ -242,9 +242,9 @@ public class GenericMethods {
 	}
 
 	public static void clearText(WebDriver driver, String xpath) {
-		JSWaiter.waitForAngularLoad();
+		//JSWaiter.sleep(5000);
 		WebElement textarea = driver.findElement(By.xpath(xpath));
-		JavascriptUtils.bringIntoView(textarea);
+		//JavascriptUtils.bringIntoView(textarea);
 		textarea.clear();
 
 	}

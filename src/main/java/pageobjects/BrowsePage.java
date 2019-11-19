@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -22,12 +23,20 @@ public class BrowsePage {
 	public static final String searchFilter = "//*[@id=\"searchFilter\"]";
 	public static final String bookmarkFilter = "//div[@class='pg-filter']/div/div/[@id='bookmarkFilterFilter']";
 	public static final String peopleContacted = "//div[@class='pg-filter']/div/div/[@id='peopleMetFilter']";
-	public static final String locationFilter = "//div[@class='pg-filter']/div/div/[@id='locationFilterFilter']";
-	public static final String majorFilter = "//div[@class='pg-filter']/div/div/[@id='majorFilterFilter']";
-	public static final String expertiseFilter = "//div[@class='pg-filter']/div/div/[@id='expertiseFilterFilter']";
-	public static final String input_SEARCH = "//*[@id=\"searchFilterFilter\"]/div/div/div/div/div[1]/span/input";
+	public static final String locationFilter = "//*[@id=\"locationFilter\"]";
+	public static final String majorFilter = "//*[@id=\"majorFilterFilter\"]";
+	public static final String expertiseFilter = "//*[@id=\"expertiseFilter\"]";
+	public static final String input_SEARCH = "//*[@id=\"searchFilterFilter\"]/div/div/div/div/div[1]/span/input";	
+	public static final String input_LOCATION = "//*[@id=\"locationFilterFilter\"]/div/div/div/div/div[1]/div[2]/div/div/ul/li/div/input";	
+	public static final String input_MAJOR = "//*[@id=\"majorFilterFilter\"]/div/div/div/div/div[1]/div/input";	  
+	public static final String input_EXPERTISE = "//*[@id=\"expertiseFilterFilter\"]/div/div/div/div/div[1]/div/input";	
+	public static final String input_EXPERTISE_checkbox = "//*[@id=\"expertiseFilterFilter\"]/div/div/div/div/div[1]/div/div/div/label/span[1]/input";
 	public static final String searchApply = "//*[@id=\"searchFilterFilter\"]/div/div/div/div/div[2]/div/button[2]";
-
+	public static final String locationApply = "//*[@id=\"locationFilterFilter\"]/div/div/div/div/div[3]/div/button[2]";
+	public static final String majorApply = "//*[@id=\"majorFilterFilter\"]/div/div/div/div/div[3]/div/button[2]";
+	public static final String expertiseApply = "//*[@id=\"expertiseFilterFilter\"]/div/div/div/div/div[3]/div/button[2]";
+	
+	
 	public static final String XPATH = "xpath";
 
 	public BrowsePage(WebDriver driver) {
@@ -121,9 +130,36 @@ public class BrowsePage {
 					break;
 
 				case "Location":
+					System.out.println("Loc " + mapElement.getValue().get(i));
 					GenericMethods.click(driver, BrowsePage.locationFilter, "xpath");
-					GenericMethods.input(driver, BrowsePage.input_SEARCH, LandingPage_Elements.XPATH,
+					GenericMethods.input(driver, BrowsePage.input_LOCATION, LandingPage_Elements.XPATH,
 							mapElement.getValue().get(i));
+					JSWaiter.sleep(4000);
+					driver.findElement(By.xpath(BrowsePage.input_LOCATION)).sendKeys(Keys.ENTER);
+					JSWaiter.sleep(2000);
+					GenericMethods.click(driver, BrowsePage.locationApply, "xpath");
+					break;
+					
+				case "Major(s)":
+					GenericMethods.click(driver, BrowsePage.majorFilter, "xpath");
+					GenericMethods.input(driver, BrowsePage.input_MAJOR, LandingPage_Elements.XPATH,
+							mapElement.getValue().get(i));
+					JSWaiter.sleep(4000);
+					driver.findElement(By.xpath(BrowsePage.input_MAJOR)).sendKeys(Keys.ENTER);
+					JSWaiter.sleep(2000);
+					GenericMethods.click(driver, BrowsePage.majorApply, "xpath");
+					break;
+					
+				case "Expertise":
+					System.out.println("Expertise " + mapElement.getValue().get(i));
+					GenericMethods.click(driver, BrowsePage.expertiseFilter, "xpath");
+					GenericMethods.click(driver, BrowsePage.input_EXPERTISE, "xpath");
+					GenericMethods.input(driver, BrowsePage.input_EXPERTISE, LandingPage_Elements.XPATH,
+							mapElement.getValue().get(i));
+					GenericMethods.click(driver, BrowsePage.input_EXPERTISE_checkbox, "xpath");
+					System.out.println("Here");
+				    GenericMethods.clearText(driver, BrowsePage.input_EXPERTISE);
+					GenericMethods.click(driver, BrowsePage.expertiseApply, "xpath");
 					break;
 				}
 
