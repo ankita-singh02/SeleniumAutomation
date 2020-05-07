@@ -1,3 +1,6 @@
+properties([parameters([choice(choices: 'master\nversion1.0', description: 'Select branch to build', name: 'Git Branches')])])
+
+
 pipeline {
     agent any 
     stages {
